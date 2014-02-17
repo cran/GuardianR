@@ -1,0 +1,9 @@
+2013-05-07 - version 0.1:
+   - Release
+2014-02-17 - version 0.2:
+   - Fixed the error caused by empty replies from Guardian API
+   - Excluded duplicate entries from get_guardian() and get_guardian_full()
+   - Revised documentation to explain search for exact keywords
+   - Added BibTeX citation file 
+   - Packages RCurl and RJSONIO are now on "Imports" instead of "Depends"
+   - Fixed truncated lines in the PDF manual

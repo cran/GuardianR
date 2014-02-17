@@ -1,16 +1,13 @@
-### Guardian API Wrapper v.01 ###
-### by M.Bastos & C.Puschmann ###
+### Guardian API Wrapper v.02
+### by M.Bastos & C.Puschmann
 
 get_json.nokey <- function(keywords, format="json", from.date, to.date)
 {
-  # load required libraries
-  require(RCurl)
-  require(RJSONIO)
-  
   # pagination
   page.size <- 50
   this.page <- 1
   pages <- 1
+  format="json"
   
   # prepare list for storing api responses
   api.responses.nokey <- NULL
@@ -24,7 +21,11 @@ get_json.nokey <- function(keywords, format="json", from.date, to.date)
     else { json <- getURL(request, timeout = 240) }
     json <- fromJSON(json, simplify=FALSE)
     this.api.response <- json$response
-    stopifnot(!is.null(this.api.response))
+    if(this.api.response$total==0){
+      print(paste("No matches were found in the Guardian database for keyword '", keywords, "'", sep=""))
+      this.page <- this.page + 1
+      } else {
+   stopifnot(!is.null(this.api.response))
     pages <- this.api.response$pages
     if (pages >= 1)
     {
@@ -38,10 +39,13 @@ get_json.nokey <- function(keywords, format="json", from.date, to.date)
     }
     api.responses.nokey <- c(api.responses.nokey, this.api.response)
     this.page <- this.page + 1
-  }
+  }}
   return(api.responses.nokey)
   if(.Platform$OS.type == "windows") { file.remove("cacert.perm") }
 }
+
+
+
 
 # parse json to data frame
 parse_json_to_df.nokey <- function(api.responses.nokey)
@@ -166,7 +170,7 @@ parse_json_to_df.nokey <- function(api.responses.nokey)
       api.df.nokey <- rbind(api.df.nokey, this.api.df.nokey)
     }
   }
-  return(api.df.nokey)
+  return(unique(api.df.nokey))
 }
 
 get_guardian <- function(keywords, format="json", from.date, to.date)
@@ -181,14 +185,11 @@ get_guardian <- function(keywords, format="json", from.date, to.date)
 
 get_json <- function(keywords, format="json", from.date, to.date, api.key)
 {
-  # load required libraries
-  require(RCurl)
-  require(RJSONIO)
-  
   # pagination
   page.size <- 50
   this.page <- 1
   pages <- 1
+  format="json"
   
   # prepare list for storing api responses
   api.responses <- NULL
@@ -202,6 +203,10 @@ get_json <- function(keywords, format="json", from.date, to.date, api.key)
     else { json <- getURL(request, timeout = 240) }
     json <- fromJSON(json, simplify=FALSE)
     this.api.response <- json$response
+    if(this.api.response$total==0){
+      print(paste("No matches were found in the Guardian database for keyword '", keywords, "'", sep=""))
+      this.page <- this.page + 1
+    } else {
     stopifnot(!is.null(this.api.response))
     pages <- this.api.response$pages
     if (pages >= 1)
@@ -216,7 +221,7 @@ get_json <- function(keywords, format="json", from.date, to.date, api.key)
     }
     api.responses <- c(api.responses, this.api.response)
     this.page <- this.page + 1
-  }
+  }}
   return(api.responses)
   if(.Platform$OS.type == "windows") { file.remove("cacert.perm") }
 }
@@ -348,7 +353,7 @@ parse_json_to_df <- function(api.responses)
       api.df <- rbind(api.df, this.api.df)
     }
   }
-  return(api.df)
+  return(unique(api.df))
 }
 
 get_guardian_full <- function(keywords, format="json", from.date, to.date, api.key)
