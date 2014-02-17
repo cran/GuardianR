@@ -1,17 +1,14 @@
 Package: GuardianR
 Type: Package
-Title: Guardian API Wrapper
-Version: 0.1
-Date: 2013-04-26
+Title: The Guardian API Wrapper
+Version: 0.2
+Date: 2014-02-17
 Author: Marco Toledo Bastos & Cornelius Puschmann
 Maintainer: Marco Toledo Bastos <marco@toledobastos.com>
-Depends: RCurl, RJSONIO
-Description: Provides an interface to the Open Platform's Content API
-        of the Guardian Media Group. It retrieves content from news
-        outlets The Observer, The Guardian, and guardian.co.uk from
-        1999 to current day
+Imports: RCurl, RJSONIO
+Description: Provides an interface to the Open Platform's Content API of the Guardian Media Group. It retrieves content from news outlets The Observer, The Guardian, and guardian.co.uk from 1999 to current day
 License: GPL (>= 2)
-Packaged: 2013-05-07 16:35:42 UTC; toledo
+Packaged: 2014-02-17 17:23:43 UTC; toledo
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-05-07 22:03:55
+Date/Publication: 2014-02-17 19:08:10

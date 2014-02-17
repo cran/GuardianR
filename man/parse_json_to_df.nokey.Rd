@@ -11,7 +11,7 @@ parse_json_to_df.nokey(api.responses.nokey)
 }
 \arguments{
   \item{api.responses.nokey}{
-Parses JSON to data frame 
+Parses JSON to data frame. 
 }
 }
 \author{

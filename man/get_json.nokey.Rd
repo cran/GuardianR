@@ -13,16 +13,16 @@ get_json.nokey(keywords, format = "json", from.date, to.date)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{keywords}{
-Keyword to search Guardian API. Exemple: "Thatcher". For multiple keywords use c("Margaret", "Hilda", "Thatcher")
+Keyword to search Guardian API. Exemple: "Thatcher". For multiple keywords use "Margaret+Hilda+Thatcher".
 }
   \item{format}{
-Specifies format (JSON is default)
+Specifies format (JSON is default).
 }
   \item{from.date}{
-Start date of search
+Start date of search.
 }
   \item{to.date}{
-End date of search
+End date of search.
 }
 }
 \author{

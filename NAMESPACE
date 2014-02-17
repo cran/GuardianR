@@ -1,1 +1,4 @@
-exportPattern("^[[:alpha:]]+")
+import(RCurl)
+import(RJSONIO)
+export(get_guardian)
+export(get_guardian_full)
