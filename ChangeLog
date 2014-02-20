@@ -7,3 +7,5 @@
    - Added BibTeX citation file 
    - Packages RCurl and RJSONIO are now on "Imports" instead of "Depends"
    - Fixed truncated lines in the PDF manual
+2014-02-20 - version 0.3:
+   - Removed the API-key provided for function get_guardian_full. Users should request an API-key at http://guardian.mashery.com/
