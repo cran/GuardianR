@@ -9,7 +9,7 @@ The function get_guardian_full() takes four variables and returns a data frame w
 
 Search takes a single keyword or multiple keywords concatenated with "+" (e.g. "keyword1+keyword2") and also accepts Boolean queries with and/or/not between words to refine searches. For exact phrases and matches encapsulate the keywords in \%22 (e.g "\%22Death+of+Margaret+Thatcher\%22").
 
-The function get_guardian_full() returns the full text of articles and requires a Guardian API-key. Searching with API-key also returns data relevant to the access level assigned to your key.
+The function get_guardian_full() returns the full text of articles and requires a Guardian API-key. Searching with API-key also returns data relevant to the access level assigned to your key. This function is not intended to be used without an API-key. 
 
 Guardian API-key can be obtained by registering at <http://guardian.mashery.com/>.
 }
@@ -42,22 +42,6 @@ Information about the Content API is available on Guardian Item Reference Guide 
 }
 \author{
 Marco Toledo Bastos & Cornelius Puschmann
-}
-\examples{
-## Not run:
-results <- get_guardian_full(keywords="germany", 
-                             from.date="2013-04-11", 
-                             to.date="2013-04-11", 
-                             api.key="93nwec4ve35ag87ev7y6rxqf")
-## End(Not run)
-
-## Not run:
-keywords <- "margaret+thatcher+death"
-results <- get_guardian_full(keywords=keywords, 
-                             from.date="2013-04-09", 
-                             to.date="2013-04-09", 
-                             api.key="93nwec4ve35ag87ev7y6rxqf")
-## End(Not run)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

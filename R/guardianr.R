@@ -21,6 +21,7 @@ get_json.nokey <- function(keywords, format="json", from.date, to.date)
     else { json <- getURL(request, timeout = 240) }
     json <- fromJSON(json, simplify=FALSE)
     this.api.response <- json$response
+    stopifnot(!is.null(this.api.response))
     if(this.api.response$total==0){
       print(paste("No matches were found in the Guardian database for keyword '", keywords, "'", sep=""))
       this.page <- this.page + 1
@@ -181,7 +182,7 @@ get_guardian <- function(keywords, format="json", from.date, to.date)
 }
 
 # # Not run:
-# results <- get_guardian(keywords="germany", from.date="2013-04-08", to.date="2013-04-09")
+# results <- get_guardian(keywords="ireland", from.date="2013-04-08", to.date="2013-04-09")
 
 get_json <- function(keywords, format="json", from.date, to.date, api.key)
 {
@@ -203,6 +204,7 @@ get_json <- function(keywords, format="json", from.date, to.date, api.key)
     else { json <- getURL(request, timeout = 240) }
     json <- fromJSON(json, simplify=FALSE)
     this.api.response <- json$response
+    stopifnot(!is.null(this.api.response))
     if(this.api.response$total==0){
       print(paste("No matches were found in the Guardian database for keyword '", keywords, "'", sep=""))
       this.page <- this.page + 1
@@ -362,6 +364,3 @@ get_guardian_full <- function(keywords, format="json", from.date, to.date, api.k
   guardian.api.df <- parse_json_to_df(guardian.api.responses)
   return (guardian.api.df)
 }
-
-# # Not run:
-# results <- get_guardian_full(keywords="germany", from.date="2013-04-08", to.date="2013-04-09", api.key=your.api.key)

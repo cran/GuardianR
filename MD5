@@ -1,11 +1,11 @@
-97b309516c5d68e06e9ac0d1d8485c8e *ChangeLog
-2978a84af5391ac44456632650a5cde1 *DESCRIPTION
-52dfb751331e8c8daea40fd3da7ec066 *NAMESPACE
-34cddb7e1dd64aca9de00de070b767eb *R/guardianr.R
+fcd35f0cc60e4ce09d097e8d9d51e55d *ChangeLog
+e308ce953b1c6caee93c3c62907b18e3 *DESCRIPTION
+ed00623a36ade6faf147591ace2d7a0f *NAMESPACE
+10bd05273bc03c78a398761ef81f1eaf *R/guardianr.R
 e527df91f115fc88bc2ccba02d78516c *inst/CITATION
-e135b9950ad54cc5c854ad7c0863823c *man/GuardianR-package.Rd
+55aa57a21ae23b93540eabd07664d66f *man/GuardianR-package.Rd
 128e36dfb2a37b0c1570d07f8526cb65 *man/get_guardian.Rd
-ccc3138f77e74143b91b6ef7c8722458 *man/get_guardian_full.Rd
+263fb3bf20da56395839b0eefb39396f *man/get_guardian_full.Rd
 f1b93a7f019deeaf0763b8f0b3f6cffc *man/get_json.Rd
 c006dbeee61dc46aadb88759d864203e *man/get_json.nokey.Rd
 30224cf1793beab70fb591b07b6d72cb *man/parse_json_to_df.Rd
