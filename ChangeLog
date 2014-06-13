@@ -9,3 +9,7 @@
    - Fixed truncated lines in the PDF manual
 2014-02-20 - version 0.3:
    - Removed the API-key provided for function get_guardian_full. Users should request an API-key at http://guardian.mashery.com/
+2014-06-13 - version 0.4:
+   - Function get_guardian_full declared in NAMESPACE. Users still need to request an API-key at http://guardian.mashery.com/
+   - Functions get_json and parse_json_to_df are also declared in NAMESPACE
+   

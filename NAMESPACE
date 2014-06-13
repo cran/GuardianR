@@ -1,3 +1,8 @@
 import(RCurl)
 import(RJSONIO)
 export(get_guardian)
+export(get_guardian_full)
+export(get_json.nokey)
+export(get_json)
+export(parse_json_to_df.nokey)
+export(parse_json_to_df)
