@@ -6,14 +6,14 @@
 The Guardian API Wrapper
 }
 \description{
-Provides an interface to the Open Platform's Content API of the Guardian Media Group. It retrieves content from news outlets The Observer, The Guardian, and guardian.co.uk from 1999 to current day.
+The package provides an interface to the Open Platform's Content API of the Guardian Media Group. It retrieves content from news outlets The Observer, The Guardian, and guardian.co.uk from 1999 to current day. As of version 0.5, GuardianR connects to the Guardian Content API v2, which is much faster, but requires an API key and implements the limit of 12 Calls per second or 5,000 calls per day.
 }
 \details{
 \tabular{ll}{
 Package: \tab GuardianR\cr
 Type: \tab Package\cr
-Version: \tab 0.3\cr
-Date: \tab 2014-02-20\cr
+Version: \tab 0.5\cr
+Date: \tab 2014-09-16\cr
 License: \tab GPL (>= 2)\cr
 }
 The results of keyword search include news articles that match the search terms and were published after 1999. Function get_guardian accepts date intervals with multiple keywords (format: "keyword1+keyword2") and returns a data frame. Rows refer to news articles and columns to the news item's data. The resulting data frame includes the following 27 columns:
@@ -72,7 +72,7 @@ commentCloseDate Date comments closed (POSIXct)
 
 body News article full text
 
-At the time of this writing, Microsoft Windows does not have integration between the OS default CA certificates and OpenSS. Because of that, the functions get_guardian and get_guardian_full will verify the operation system and when necessary download the SLL certificate "cacert.perm" to access https links.
+At the time of this writing, Microsoft Windows does not have integration between the OS default CA certificates and OpenSS. Because of that, the function get_guardian will verify the operation system and when necessary download the SLL certificate "cacert.perm" to access https links.
 
 To see how to citate the package, check citation("GuardianR").
 }
@@ -83,15 +83,5 @@ Maintainer:
 Marco Toledo Bastos <marco@toledobastos.com>
 }
 \references{
-More information on Content API is available on Guardian Item Reference Guide (http://www.guardian.co.uk/open-platform/content-api-item-reference-guide)
-
-See also Guardian Content Search Reference Guide (http://www.guardian.co.uk/open-platform/content-api-content-search-reference-guide)
-
-And the Getting started guide (http://www.guardian.co.uk/open-platform/getting-started).
-}
-
-\examples{
-results <- get_guardian(keywords="ireland", 
-                        from.date="2013-04-09", 
-                        to.date="2013-04-09")
+More information on Content API is available on Guardian Item Reference Guide (http://www.guardian.co.uk/open-platform/content-api-item-reference-guide) and the Getting started guide (http://www.guardian.co.uk/open-platform/getting-started).
 }

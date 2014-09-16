@@ -17,7 +17,5 @@ JSON response from Guardian API
 \author{
 Marco Toledo Bastos & Cornelius Puschmann
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ IO }
 \keyword{ utilities }
