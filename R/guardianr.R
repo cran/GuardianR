@@ -1,5 +1,5 @@
-### Guardian API Wrapper v.05
-### by M.Bastos & C.Puschmann
+### Guardian API Wrapper v.06
+### by M.T. Bastos & C. Puschmann
 ### library(RCurl)
 ### library(RJSONIO)
 
@@ -11,14 +11,18 @@ get_json <- function(keywords, format="json", from.date, to.date, api.key)
   pages <- 1
   format="json"
   
+  if(as.Date(as.character(to.date))-as.Date(as.character(from.date))>28) {
+      warning("The requested period is potentially too long. To avoid errors make multiple request (e.g. weekly chunks)")
+  }
+  
   # prepare list for storing api responses
   api.responses <- NULL
   
   # call guardian API
   while (this.page <= pages)
   {
-    request <- paste("http://beta.content.guardianapis.com/search?q=", keywords, "&from-date=", from.date, "&to-date=", to.date, "&format=", format, "&show-fields=all&page=", this.page, "&pageSize=", page.size, "&api-key=", api.key, sep="")
-    if(.Platform$OS.type == "windows") { if(!file.exists("cacert.perm")) download.file(url="http://curl.haxx.se/ca/cacert.pem", destfile="cacert.perm") }
+    request <- paste("http://content.guardianapis.com/search?q=", keywords, "&from-date=", from.date, "&to-date=", to.date, "&format=", format, "&show-fields=all&page=", this.page, "&pageSize=", page.size, "&api-key=", api.key, sep="")
+    if(.Platform$OS.type == "windows") { if(!file.exists("cacert.perm")) download.file(url="https://curl.haxx.se/ca/cacert.pem", destfile="cacert.perm") }
     if(.Platform$OS.type == "windows") { json <- getURL(request, cainfo = "cacert.perm", timeout = 240, ssl.verifypeer = FALSE) }
     else { json <- getURL(request, timeout = 240) }
     json <- fromJSON(json, simplify=FALSE)

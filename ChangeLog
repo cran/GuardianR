@@ -17,3 +17,9 @@
    - Search without an API-key is no longer supported in the new API. The functions get_guardian_full and get_guardian were merged into get_guardian, which now returns the full text
    - Function get_guardian requires an API key due to functional requirements of Guardian Content API v2
    - Guardian Content API v2 is faster, but implements a limit of 12 Calls per second and 5,000 calls per day
+2016-03-11 - version 0.6:
+   - Completed migration from API 2.0 beta to content.guardianapis.com
+   - Added warning for requests over extended periods of time. Users should consider splitting requests in weekly or monthly chunks
+   - cacert.pem now downloads (when needed) using HTTPS
+   
+   

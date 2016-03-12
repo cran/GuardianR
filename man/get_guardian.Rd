@@ -8,7 +8,7 @@ The function get_guardian takes four variables (keyword(s), starting date, end d
 
 Search criteria accepts single or multiple keywords concatenated with "+" (e.g. "keyword1+keyword2"). It also accepts Boolean queries with and/or/not between words to refine searches. For exact phrases and matches, please encapsulate the keywords in \%22 (e.g "\%22Death+of+Margaret+Thatcher\%22").
 
-As of version 0.5, the function get_guardian returns the full text of articles and requires a Guardian API-key. Guardian API-key can be obtained by registering at <http://guardian.mashery.com/>.
+From version 0.5 onwards, the function get_guardian returns the full text of articles and requires a Guardian API-key. Guardian API-key can be obtained by registering at <http://open-platform.theguardian.com/access/>.
 }
 \usage{
 get_guardian(keywords, format = "json", from.date, to.date, api.key)
@@ -28,17 +28,17 @@ Start date of search.
 End date of search.
 }
   \item{api.key}{
-A Guardian API-key is necessery to retrieve the full text of news articles. A Guardian API-key can be obtained by registering at <http://guardian.mashery.com/>.
+A Guardian API-key is necessery to retrieve the full text of news articles. A Guardian API-key can be obtained by registering at <http://open-platform.theguardian.com/access/>.
 }
 }
 \value{
 Returns a data frame with 27 variables. Rows refer to news articles and columns to the news item's data.
 }
 \references{
-Information about the Content API is available on Guardian Item Reference Guide (http://www.guardian.co.uk/open-platform/content-api-item-reference-guide).
+Information about the Content API is available on Guardian Item Reference Guide (http://open-platform.theguardian.com/documentation/).
 }
 \author{
-Marco Toledo Bastos & Cornelius Puschmann
+Marco T. Bastos & Cornelius Puschmann
 }
 \examples{
 ## Not run:

@@ -27,7 +27,7 @@ Guardian API-key.
 }
 }
 \author{
-Marco Toledo Bastos & Cornelius Puschmann
+Marco T. Bastos & Cornelius Puschmann
 }
 \keyword{ IO }
 \keyword{ utilities }
