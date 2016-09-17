@@ -15,7 +15,7 @@ JSON response from Guardian API
 }
 }
 \author{
-Marco T. Bastos & Cornelius Puschmann
+Marco Bastos & Cornelius Puschmann
 }
 \keyword{ IO }
 \keyword{ utilities }

@@ -11,15 +11,17 @@ Search criteria accepts single or multiple keywords concatenated with "+" (e.g. 
 From version 0.5 onwards, the function get_guardian returns the full text of articles and requires a Guardian API-key. Guardian API-key can be obtained by registering at <http://open-platform.theguardian.com/access/>.
 }
 \usage{
-get_guardian(keywords, format = "json", from.date, to.date, api.key)
+get_guardian(keywords, section, format = "json", from.date, to.date, api.key)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{keywords}{
 Keyword to search Guardian API. Exemple: "Thatcher". For multiple keywords use "Margaret+Hilda+Thatcher".
 }
+  \item{section}{
+Specifies news sections to narrow the query (articles from other news desks will be filtered out). It doesn not accept blank spaces, so use "word" if querying for articles in the "World news" section (and so on). It defaults to NULL in which case API search is performed across all sections.
+}
   \item{format}{
-Specifies format (JSON is default).
+Specifies JSON or XML format. It defaults to JSON.
 }
   \item{from.date}{
 Start date of search.
@@ -28,7 +30,7 @@ Start date of search.
 End date of search.
 }
   \item{api.key}{
-A Guardian API-key is necessery to retrieve the full text of news articles. A Guardian API-key can be obtained by registering at <http://open-platform.theguardian.com/access/>.
+A Guardian API-key is necessary to retrieve the full text of news articles. A Guardian API-key can be obtained by registering at <http://open-platform.theguardian.com/access/>.
 }
 }
 \value{
@@ -38,11 +40,12 @@ Returns a data frame with 27 variables. Rows refer to news articles and columns 
 Information about the Content API is available on Guardian Item Reference Guide (http://open-platform.theguardian.com/documentation/).
 }
 \author{
-Marco T. Bastos & Cornelius Puschmann
+Marco Bastos & Cornelius Puschmann
 }
 \examples{
 ## Not run:
 results <- get_guardian("islamic+state", 
+	section="world",
 	from.date="2014-09-16", 
 	to.date="2014-09-16", 
 	api.key="3xzg2fk53jcdgaj5tbwqqhcz")
