@@ -1,22 +1,21 @@
-### Guardian API Wrapper v.07
+### Guardian API Wrapper v.08
 ### by M.T. Bastos & C. Puschmann
-### last edited by Mark Johnman
+### contributions by Mark Johnman
 # 
 # # install these packages first if needed
 # library(RCurl)
 # library(RJSONIO)
 
 # query Guardian API
-get_json <- function(keywords, section=NULL, format="json", from.date, to.date, api.key)
+get_json <- function(keywords, section, format, from.date, to.date, api.key)
 {
 # pagination
 page.size <- 100
 this.page <- 1
 pages <- 1
-format="json"
 
-if(as.Date(as.character(to.date))-as.Date(as.character(from.date))>28) {
-    warning("The requested period is potentially too long. To avoid errors make multiple request (e.g. weekly chunks)")
+if(as.Date(as.character(to.date))-as.Date(as.character(from.date))>31) {
+    warning("The requested period is potentially too long. To avoid errors make multiple weekly or monthly requests")
 }
 
 # prepare list for storing api responses
@@ -26,7 +25,7 @@ api.responses <- NULL
 while (this.page <= pages) {
     if(is.null(section)) {
         request <- paste("http://content.guardianapis.com/search?q=", keywords, "&from-date=", from.date, "&to-date=", to.date, 
-                         "&format=", format, "&show-fields=all&page=", this.page, "&pageSize=", page.size, "&api-key=", api.key, sep="")
+                         "&format=", format, "&show-fields=all&page=", this.page, "&page-size=", page.size, "&api-key=", api.key, sep="")
     } else {
         request <- paste("http://content.guardianapis.com/search?q=", keywords, "&section=", section, "&from-date=", from.date, "&to-date=", to.date, 
                          "&format=", format, "&show-fields=all&page=", this.page, 
@@ -38,6 +37,7 @@ while (this.page <= pages) {
     json <- fromJSON(json, simplify=FALSE)
     this.api.response <- json$response
     stopifnot(!is.null(this.api.response))
+    #if(this.page==1) { pages.total <<- this.api.response$pages }
     if(this.api.response$total==0){
         print(paste("No matches were found in the Guardian database for keyword '", keywords, "'", sep=""))
         this.page <- this.page + 1
@@ -94,7 +94,8 @@ api.df = data.frame(
     body=NULL)
 
 # determine number of pages
-pages <- try(seq(from=9, to=length(api.responses), by=9), silent=T)
+pages <- which(names(api.responses)=="results")
+#pages <- pages.total
 
 for (i in pages)
 {
@@ -192,9 +193,9 @@ return(unique(api.df))
 }
 
 # call api wrapper
-get_guardian <- function(keywords, section, format="json", from.date, to.date, api.key)
+get_guardian <- function(keywords, section=NULL, format="json", from.date, to.date, api.key)
 {
-guardian.api.responses <- get_json(keywords, section, format="json", from.date, to.date, api.key)
+guardian.api.responses <- get_json(keywords, section, format, from.date, to.date, api.key)
 guardian.api.df <- parse_json_to_df(guardian.api.responses)
 return (guardian.api.df)
 }

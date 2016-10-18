@@ -7,7 +7,7 @@ Request json at Guardian API
 The function get_json makes a call at Guardian API to retrieve articles that match the criteria. The function is called by get_guardian and should not be used standalone.
 }
 \usage{
-get_json(keywords, section, format = "json", from.date, to.date, api.key)
+get_json(keywords, section, format, from.date, to.date, api.key)
 }
 \arguments{
   \item{keywords}{

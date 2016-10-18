@@ -11,14 +11,67 @@ Search criteria accepts single or multiple keywords concatenated with "+" (e.g. 
 From version 0.5 onwards, the function get_guardian returns the full text of articles and requires a Guardian API-key. Guardian API-key can be obtained by registering at <http://open-platform.theguardian.com/access/>.
 }
 \usage{
-get_guardian(keywords, section, format = "json", from.date, to.date, api.key)
+get_guardian(keywords, section, format, from.date, to.date, api.key)
 }
+%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{keywords}{
-Keyword to search Guardian API. Exemple: "Thatcher". For multiple keywords use "Margaret+Hilda+Thatcher".
+Keyword to search Guardian API. Example: "Thatcher". For multiple keywords use "Margaret+Hilda+Thatcher".
 }
   \item{section}{
-Specifies news sections to narrow the query (articles from other news desks will be filtered out). It doesn not accept blank spaces, so use "word" if querying for articles in the "World news" section (and so on). It defaults to NULL in which case API search is performed across all sections.
+Specifies news sections to narrow the query (articles from other news desks will be filtered out). It doesn not accept blank spaces, so use "world" if querying for articles in the section "world news" (and so on). It defaults to NULL in which case the API request is performed across all sections. For referece, these are some of the most common news sections:
+
+entertainment
+
+sport
+
+world
+
+opinion
+
+economy
+
+national
+
+artanddesign
+
+politics
+
+environment
+
+lifestyle
+
+jobs
+
+education
+
+technology
+
+science
+
+fashion
+
+culture
+
+society
+
+tourism
+
+health
+
+cars
+
+uk-news
+
+business
+
+football
+
+stage
+
+money
+
+commentisfree
 }
   \item{format}{
 Specifies JSON or XML format. It defaults to JSON.
