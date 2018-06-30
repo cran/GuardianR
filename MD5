@@ -1,9 +1,10 @@
-ceefe23cf251b021c72eab694769cd9b *ChangeLog
-c252dc323fcff277a22b36fa30bac1d5 *DESCRIPTION
+4c45763cee6568ba854842e89a90bed7 *ChangeLog
+1a37fe6fdccc3a2f23d08c83030aace3 *DESCRIPTION
 ca6675537cd75c692a4495b2972caa14 *NAMESPACE
-f958781b5c3290bba58869fda379d876 *R/guardianr.R
+d0946051929f71032aefaef05d1a99eb *R/guardianr.R
+69c47c29d8812375c08925a494903234 *README.md
 e527df91f115fc88bc2ccba02d78516c *inst/CITATION
-6dc52ef9c924313f5c6aeea7376c78ff *man/GuardianR-package.Rd
-a0615bfb2eb673b1ced896b3dea3f1cc *man/get_guardian.Rd
+ac00e000f2bc7818cba926b5e64ba571 *man/GuardianR-package.Rd
+167fcb47351f0a4d3e3d41dced8bc01a *man/get_guardian.Rd
 0341aa260af09d70583b97600ca764de *man/get_json.Rd
 716c2cb605dd1a4472b61cfa591b8729 *man/parse_json_to_df.Rd
